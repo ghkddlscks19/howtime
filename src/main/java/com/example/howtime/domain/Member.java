@@ -12,10 +12,11 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table (name ="member")
 public class Member {
 
     @Id
-    @Column(length = 10)
+    @Column(length = 10, name = "studentnum")
     private String studentNum;
 
     private String password;
@@ -29,8 +30,5 @@ public class Member {
 
     @Column(unique = true)
     private String email;
-
-
-
 
 }

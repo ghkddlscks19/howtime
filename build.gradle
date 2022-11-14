@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'java'
+	id 'war'
 }
 
 group = 'com.example'
@@ -11,6 +12,15 @@ sourceCompatibility = '1.8'
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
+	}
+}
+
+war {
+	enabled = true
+	webInf { // webInf에 processeResources의 결과 디렉토리를 포함하도록 추가
+		with {
+			from("${buildDir}/resources/main")
+		}
 	}
 }
 

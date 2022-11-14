@@ -19,18 +19,18 @@ public class MemberService {
         return this.memberRepository.save(member);
     }
 
-    public Optional<Member> read(Long id) {
-        return this.memberRepository.findById(id);
-    }
 
-    public void delete(Long id){
-        memberRepository.deleteById(id);
-    }
+    public Boolean checkStudentNum(String studentNum) {
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(studentNum);
+        System.out.println(memberRepository.findByStudentNum(studentNum).size());
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@");
 
-    public Member update(Long id,String nickname) {
-        Member member = read(id).get();
-        member.setNickname(nickname);
-        return memberRepository.save(member);
+        if (memberRepository.findByStudentNum(studentNum).size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
