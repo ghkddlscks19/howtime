@@ -33,4 +33,17 @@ public class MemberService {
         }
     }
 
+    public Boolean checkEmail(String email) {
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(email);
+        System.out.println(memberRepository.findByEmail(email).size());
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@");
+
+        if (memberRepository.findByEmail(email).size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

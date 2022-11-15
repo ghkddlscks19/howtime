@@ -29,4 +29,9 @@ public class MemberController {
     public Boolean checkStudentNum(String studentNum){
         return memberService.checkStudentNum(studentNum);
     }
+
+    @GetMapping("/check/email")
+    public Boolean checkEmail(String email){
+        return memberService.checkEmail(email);
+    }
 }
