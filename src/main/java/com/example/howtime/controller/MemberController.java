@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,11 +28,26 @@ public class MemberController {
 
     @GetMapping("/check/student")
     public Boolean checkStudentNum(String studentNum){
+        System.out.println("checkStudentNum() 입장");
         return memberService.checkStudentNum(studentNum);
     }
 
     @GetMapping("/check/email")
     public Boolean checkEmail(String email){
+        System.out.println("checkEmail() 입장");
         return memberService.checkEmail(email);
     }
+
+    @GetMapping("/check/nickname")
+    public Boolean checkNickname(String nickname){
+        System.out.println("checkNickname() 입장");
+        return memberService.checkNickname(nickname);
+    }
+
+    @PostMapping("/login")
+    public Boolean checkLogin(String studentNum, String password) {
+        System.out.println("checkLogin() 입장");
+        return memberService.checkLogin(studentNum, password);
+    }
+
 }
