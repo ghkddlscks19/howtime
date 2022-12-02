@@ -19,6 +19,7 @@ import java.util.Optional;
 public class MemberController {
     private final MemberService memberService;
 
+    //회원가입
     @PostMapping("/create")
     public ResponseEntity<Member> create(@RequestBody Member member) {
         System.out.println("create() 입장");
@@ -26,22 +27,32 @@ public class MemberController {
                 .body(memberService.create(member));
     }
 
+    //학번 중복확인
     @GetMapping("/check/student")
     public Boolean checkStudentNum(String studentNum){
         System.out.println("checkStudentNum() 입장");
         return memberService.checkStudentNum(studentNum);
     }
 
+    //이메일 중복확인
     @GetMapping("/check/email")
     public Boolean checkEmail(String email){
         System.out.println("checkEmail() 입장");
         return memberService.checkEmail(email);
     }
 
+    //닉네임 중복확인
     @GetMapping("/check/nickname")
     public Boolean checkNickname(String nickname){
         System.out.println("checkNickname() 입장");
         return memberService.checkNickname(nickname);
+    }
+
+    //회원정보 불러오기
+    @GetMapping("/check/student/{studentnum}")
+    public List<Member> loginMember(@PathVariable String studentnum){
+        System.out.println("loginMember() 입장");
+        return memberService.loginMember(studentnum);
     }
 
     @PostMapping("/login")

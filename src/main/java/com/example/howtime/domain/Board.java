@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @NoArgsConstructor
@@ -18,7 +19,7 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String title;
 
@@ -29,11 +30,15 @@ public class Board {
 
     private int price;
 
-    private LocalDateTime createDate;
+    @Column(name = "createdate")
+    private String createDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
 
-    private String condition;
+    @Column(name = "modifydate")
+    private String modifyDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
 
-    @ManyToOne
-    private Member author;
+    private String requirement;
+
+    @Column(length = 10)
+    private String memberid;
 
 }

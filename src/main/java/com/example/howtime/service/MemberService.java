@@ -1,5 +1,6 @@
 package com.example.howtime.service;
 
+import com.example.howtime.domain.Board;
 import com.example.howtime.domain.Member;
 import com.example.howtime.repository.MemberRepository;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -66,4 +67,9 @@ public class MemberService {
             return false;
         }
     }
+
+    public List<Member> loginMember(String studentNum) {
+        return memberRepository.findByStudentNum(studentNum);
+    }
+
 }
