@@ -1,7 +1,9 @@
 package com.example.howtime.service;
 
 import com.example.howtime.domain.Board;
+import com.example.howtime.domain.BoardCreation;
 import com.example.howtime.domain.Member;
+import com.example.howtime.repository.BoardCreationRepository;
 import com.example.howtime.repository.BoardRepository;
 import com.example.howtime.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,16 +20,14 @@ public class BoardService {
 
     private final MemberRepository memberRepository;
 
-    public Board create(Board board) {
-        return this.boardRepository.save(board);
+    private final BoardCreationRepository boardCreationRepository;
+
+    public BoardCreation create(BoardCreation board) {
+        return boardCreationRepository.save(board);
     }
 
     public List<Board> getBoard() {
         return this.boardRepository.findAll();
-    }
-
-    public List<Member> getMember(String studentNum) {
-        return this.memberRepository.findByStudentNum(studentNum);
     }
 
 }

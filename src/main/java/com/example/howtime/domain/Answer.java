@@ -22,6 +22,6 @@ public class Answer {
 
     private String studentNum;
 
-    private Integer boardId;
+    private Integer boardid;
 
 }

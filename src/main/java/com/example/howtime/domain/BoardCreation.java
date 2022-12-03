@@ -10,12 +10,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-public class Board {
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "board")
+public class BoardCreation{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -37,8 +37,7 @@ public class Board {
 
     private String requirement;
 
-    @ManyToOne
-    @JoinColumn(name = "memberid")
-    private Member memberId;
+    @Column(name = "memberid")
+    private String memberId;
 
 }
