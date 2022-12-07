@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -30,4 +31,15 @@ public class BoardService {
         return this.boardRepository.findAll();
     }
 
+    public Optional<Board> getClickBoard(int boardId){
+        return this.boardRepository.findById(boardId);
+    }
+
+    public void deleteBoard(int boardId){
+        this.boardRepository.deleteById(boardId);
+    }
+
+//    public BoardCreation modifyBoard(int boardId){
+//        this.boardCreationRepository.updateBoard(boardId);
+//    }
 }

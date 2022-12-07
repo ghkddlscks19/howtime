@@ -12,18 +12,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Answer {
+@Table(name = "answer")
+public class AnswerCreation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "memberid")
-    private Member memberId;
+    @Column(name = "memberid")
+    private String memberId;
 
     @Column(name = "boardid")
     private Integer boardId;
-
 }

@@ -1,5 +1,6 @@
 package com.example.howtime.controller;
 
+import com.example.howtime.domain.Board;
 import com.example.howtime.domain.Member;
 import com.example.howtime.repository.MemberRepository;
 import com.example.howtime.service.MemberService;
@@ -60,5 +61,6 @@ public class MemberController {
         System.out.println("checkLogin() 입장");
         return memberService.checkLogin(studentNum, password);
     }
+
 
 }

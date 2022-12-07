@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -32,6 +33,21 @@ public class BoardController {
         System.out.println("getBoard() 입장");
         return boardService.getBoard();
     }
+
+    @GetMapping("/create/{boardid}")
+    public Board getClickBoard(@PathVariable("boardid") int boardId){
+        return boardService.getClickBoard(boardId).get();
+    }
+
+    @DeleteMapping("/delete/{boardid}")
+    public void deleteBoard(@PathVariable("boardid") int boardId){
+        boardService.deleteBoard(boardId);
+    }
+
+//    @PatchMapping("/modify/{boardId}")
+//    public BoardCreation modifyBoard(@PathVariable("boardid") int boardId) {
+//
+//    }
 
 
 }
