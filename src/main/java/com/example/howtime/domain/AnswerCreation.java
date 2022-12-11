@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @NoArgsConstructor
@@ -16,13 +19,16 @@ import javax.persistence.*;
 public class AnswerCreation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id; // 답글아이디
 
-    private String content;
+    private String content; // 내용
+
+    @Column(name = "createdate")
+    private String createDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
 
     @Column(name = "memberid")
-    private String memberId;
+    private String memberId; // 답글 쓴 사람 정보
 
     @Column(name = "boardid")
-    private Integer boardId;
+    private Integer boardId; // 답글 쓰는 게시판 아이디
 }

@@ -16,8 +16,6 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-
-
     //회원가입
     public Member create(Member member) {
         return this.memberRepository.save(member);
@@ -60,6 +58,7 @@ public class MemberService {
         }
     }
 
+    // 로그인 정보 확인 후 로그인
     public Boolean checkLogin(String studentNum, String password) {
         if (memberRepository.findByStudentNumAndPassword(studentNum, password).size() != 0) {
             return true;
@@ -68,6 +67,7 @@ public class MemberService {
         }
     }
 
+    // 로그인한 멤버 정보 받아오기
     public List<Member> loginMember(String studentNum) {
         return memberRepository.findByStudentNum(studentNum);
     }

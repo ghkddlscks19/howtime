@@ -20,10 +20,12 @@ public class AnswerService {
 
     private final AnswerCreationRepository answerCreationRepository;
 
+    // 댓글 생성
     public AnswerCreation create(AnswerCreation answerCreation) {
         return answerCreationRepository.save(answerCreation);
     }
 
+    // 댓글 전체 받아오기
     public List<Answer> getAnswer(int boardId){
         return this.answerRepository.findByBoardId(boardId);
     }

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
@@ -30,10 +31,10 @@ public class BoardCreation{
     private int price;
 
     @Column(name = "createdate")
-    private String createDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+    private String createDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
 
     @Column(name = "modifydate")
-    private String modifyDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+    private String modifyDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
 
     private String requirement;
 

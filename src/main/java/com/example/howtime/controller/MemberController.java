@@ -56,6 +56,7 @@ public class MemberController {
         return memberService.loginMember(studentnum);
     }
 
+    // 로그인 정보 맞는지 확인
     @PostMapping("/login")
     public Boolean checkLogin(String studentNum, String password) {
         System.out.println("checkLogin() 입장");

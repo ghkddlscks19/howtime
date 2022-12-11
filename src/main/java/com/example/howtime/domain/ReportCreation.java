@@ -15,21 +15,28 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Answer {
+@Table(name = "report")
+public class ReportCreation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String content;
+    private String title;
+
+    @Column(name = "attackernickname")
+    private String attackerNickname;
 
     @Column(name = "createdate")
     private String createDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
 
-    @ManyToOne
-    @JoinColumn(name = "memberid")
-    private Member memberId;
+    @Column(name = "modifydate")
+    private String modifyDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
 
-    @Column(name = "boardid")
-    private Integer boardId;
+    @Column(columnDefinition = "TEXT")
+    private String content;
+
+    @Column(name = "memberid")
+    private String memberId;
 
 }

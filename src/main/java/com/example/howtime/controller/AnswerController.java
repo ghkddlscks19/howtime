@@ -17,6 +17,7 @@ import java.util.List;
 public class AnswerController {
     private final AnswerService answerService;
 
+    // 댓글 생성
     @PostMapping("/create")
     public ResponseEntity<AnswerCreation> create(@RequestBody AnswerCreation answerCreation) {
         System.out.println("create() 입장");
@@ -24,6 +25,7 @@ public class AnswerController {
                 .body(answerService.create(answerCreation));
     }
 
+    // 댓글 전체 받아오기
     @GetMapping("/create/{boardid}")
     public List<Answer> getAnswer(@PathVariable("boardid") int boardId){
         return answerService.getAnswer(boardId);
