@@ -13,12 +13,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/answer")
+@RequestMapping("/board")
 public class AnswerController {
     private final AnswerService answerService;
 
     // 댓글 생성
-    @PostMapping("/create")
+    @PostMapping("/create/answer")
     public ResponseEntity<AnswerCreation> create(@RequestBody AnswerCreation answerCreation) {
         System.out.println("create() 입장");
         return ResponseEntity.ok()
@@ -26,9 +26,11 @@ public class AnswerController {
     }
 
     // 댓글 전체 받아오기
-    @GetMapping("/create/{boardid}")
+    @GetMapping("/create/answer/{boardid}")
     public List<Answer> getAnswer(@PathVariable("boardid") int boardId){
         return answerService.getAnswer(boardId);
     }
+
+   
 
 }

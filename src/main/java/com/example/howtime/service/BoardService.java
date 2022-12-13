@@ -8,6 +8,8 @@ import com.example.howtime.repository.BoardRepository;
 import com.example.howtime.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -52,4 +54,12 @@ public class BoardService {
     public List<Board> getMyBoard(Member memberId){
         return this.boardRepository.findBoardByMemberId(memberId);
     }
+
+    //글 검색
+    @Transactional
+    public List<Board> findAllSearch(String keyword) {
+        return this.boardRepository.searchBoard(keyword);
+
+    }
+
 }

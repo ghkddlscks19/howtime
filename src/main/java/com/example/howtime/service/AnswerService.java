@@ -29,4 +29,5 @@ public class AnswerService {
     public List<Answer> getAnswer(int boardId){
         return this.answerRepository.findByBoardId(boardId);
     }
+
 }

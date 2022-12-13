@@ -61,5 +61,12 @@ public class BoardController {
         return boardService.getMyBoard(memberId);
     }
 
+    //글 검색
+
+    @GetMapping("/search/{keyword}")
+    public List<Board> searchBoard(@PathVariable(value="keyword") String keyword) {
+        return boardService.findAllSearch(keyword);
+    }
+
 
 }
